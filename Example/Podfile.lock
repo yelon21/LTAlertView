@@ -1,0 +1,16 @@
+PODS:
+  - LTAlertView (0.1.0)
+
+DEPENDENCIES:
+  - LTAlertView (from `../`)
+
+EXTERNAL SOURCES:
+  LTAlertView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LTAlertView: 21ce4f5ca042ddaa656acfb4fcace100d7df07f9
+
+PODFILE CHECKSUM: 4f293ff3159534e76f54178c4bfc222e3d4bd6f2
+
+COCOAPODS: 1.1.0.rc.2

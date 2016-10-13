@@ -1,0 +1,22 @@
+{
+  "name": "LTAlertView",
+  "version": "0.1.0",
+  "summary": "LTAlertView.",
+  "description": "TODO: 个人工具类.",
+  "homepage": "https://github.com/yelon21/LTAlertView",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "yjpal": "yl21ly@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/yelon21/LTAlertView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "6.0"
+  },
+  "source_files": "LTAlertView/Classes/**/*"
+}

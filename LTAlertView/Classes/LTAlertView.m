@@ -349,7 +349,7 @@
         
         [buttonContentView addConstraint:[self constraintForView:btn0
                                                    withAttribute:NSLayoutAttributeHeight
-                                                        constant:30.0]];
+                                                        constant:40.0]];
         
         if (btnCount == 2) {
             
@@ -572,7 +572,7 @@
 - (void)hideAnimation:(void(^)())hideCompleteBlock{
     
     CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animation];
-    bounceAnimation.duration = 0.15;
+    bounceAnimation.duration = 0.2;
     bounceAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     bounceAnimation.values = [NSArray arrayWithObjects:
                               [NSNumber numberWithFloat:1.05],

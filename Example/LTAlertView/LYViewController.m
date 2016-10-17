@@ -35,7 +35,7 @@
     LTAlertView *view = [[LTAlertView alloc]init];
     view.title = @"121243232";
     view.message = @"这是内容吗？这是内容吗？这是内容吗？这是内容";
-    view.neverHide = YES;
+//    view.neverHide = YES;
     [view lt_addButtonWithTitle:@"23213213213"];
 //    [view lt_addButtonWithTitle:@"222"];
 //    [view lt_addButtonWithTitle:@"3333"];
@@ -60,7 +60,7 @@
     }];
     [view lt_show];
     
-    [self adddtitle:view];
+//    [self adddtitle:view];
 }
 
 - (void)adddtitle:(LTAlertView *)view{

@@ -37,7 +37,9 @@
 @property (nullable, nonatomic, copy) void(^ClickButtonBlock)(LTAlertView * _Nonnull alertView,NSString *_Nonnull buttonTitle);
 
 + (_Nonnull id)alertViewWithTitle:(nullable NSString *)title
-                          message:(nullable NSString *)message;
+                          message:(nullable NSString *)message NS_DEPRECATED_IOS(0_1,0_1,"请使用 + (_Nonnull id)LT_alertViewWithTitle:(nullable NSString *)title message:(nullable NSString *)message");
++ (_Nonnull id)LT_alertViewWithTitle:(nullable NSString *)title
+                             message:(nullable NSString *)message;
 
 -(_Nonnull id)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 

@@ -28,7 +28,12 @@
 #pragma mark init
 + (_Nonnull id)alertViewWithTitle:(nullable NSString *)title
                           message:(nullable NSString *)message{
-
+    
+    [LTAlertView LT_alertViewWithTitle:title
+                               message:message];
+}
++ (_Nonnull id)LT_alertViewWithTitle:(nullable NSString *)title
+                             message:(nullable NSString *)message{
     LTAlertView *alertView = [[LTAlertView alloc]init];
     
     alertView.title = title;
@@ -36,6 +41,7 @@
     
     return alertView;
 }
+
 -(instancetype)init{
 
     if (self = [super init]) {

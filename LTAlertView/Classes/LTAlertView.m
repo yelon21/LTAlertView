@@ -8,7 +8,10 @@
 
 #import "LTAlertView.h"
 
-@interface LTAlertView ()
+@interface LTAlertView (){
+
+    BOOL isShowing;
+}
 
 @property(nonatomic,strong) NSMutableArray<UIButton *> *buttonsArray;
 @property(nonatomic,strong) NSMutableArray<UITextField *> *textFieldsArray;
@@ -26,11 +29,37 @@
 @implementation LTAlertView
 
 #pragma mark init
-+ (_Nonnull id)alertViewWithTitle:(nullable NSString *)title
-                          message:(nullable NSString *)message{
++ (_Nonnull id)LT_showAlertViewWithTitle:(nullable NSString *)title
+                                 message:(nullable NSString *)message
+                        clickButtonBlock:(void(^)(LTAlertView * _Nonnull alertView,NSString *_Nonnull buttonTitle))clickButtonBlock
+                            buttonTitles:(NSString *)buttonTitles, ... NS_REQUIRES_NIL_TERMINATION{
     
-    [LTAlertView LT_alertViewWithTitle:title
-                               message:message];
+    LTAlertView *alertView = [[LTAlertView alloc]init];
+    
+    alertView.title = title;
+    alertView.message = message;
+    alertView.ClickButtonBlock = clickButtonBlock;
+    
+    va_list params; //定义一个指向个数可变的参数列表指针;
+    va_start(params,buttonTitles);//va_start 得到第一个可变参数地址,
+    NSString *arg;
+    if (buttonTitles) {
+
+        id prev = buttonTitles;
+        [alertView lt_addButtonWithTitle:prev];
+        //va_arg 指向下一个参数地址
+        while( (arg = va_arg(params,id)) ){
+            
+            if (arg && [arg isKindOfClass:[NSString class]]){
+                
+                [alertView lt_addButtonWithTitle:arg];
+            }
+        }
+        //置空
+        va_end(params);
+    }
+    [alertView lt_show];
+    return alertView;
 }
 + (_Nonnull id)LT_alertViewWithTitle:(nullable NSString *)title
                              message:(nullable NSString *)message{
@@ -46,6 +75,7 @@
 
     if (self = [super init]) {
         
+        isShowing = NO;
         self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
         [self setLayoutForContentView];
     }
@@ -489,7 +519,7 @@
 #pragma mark public Method
 - (NSInteger)lt_addButtonWithTitle:(NSString *)title{
     
-    if (!title) {
+    if (!title||![title isKindOfClass:[NSString class]]) {
         
         return -1;
     }
@@ -524,6 +554,12 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
+        if (isShowing) {
+            return ;
+        }
+        
+        isShowing = YES;
+        
         [self resetAllSubContentLayout];
         
         UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
@@ -542,8 +578,14 @@
         
         return;
     }
+    
     dispatch_async(dispatch_get_main_queue(), ^{
         
+        if (!isShowing) {
+            
+            return ;
+        }
+        isShowing = NO;
         [self hideAnimation:^{
             
             [self removeFromSuperview];

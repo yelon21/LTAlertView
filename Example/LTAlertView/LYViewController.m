@@ -26,40 +26,50 @@
     NSLog(@"UIScreen=%@",NSStringFromCGRect([UIScreen mainScreen].bounds));
     NSLog(@"window=%@",NSStringFromCGRect(self.view.window.bounds));
     
+    LTAlertView *alert = [LTAlertView LT_showAlertViewWithTitle:@"标题"
+                                   message:@"weqwq"
+                          clickButtonBlock:^(LTAlertView * _Nonnull alertView, NSString * _Nonnull buttonTitle) {
+                              
+                              NSLog(@"buttonTitle=%@",buttonTitle);
+                          }
+                              buttonTitles:@"1",@"2",@"3",@"4", nil];
+    
+//    [alert lt_show];
+    [alert lt_addButtonWithTitle:@"13213213"];
 //    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //    LYViewController *vc =[sb instantiateViewControllerWithIdentifier:@"LYViewController"];
 //    [self presentViewController:vc animated:YES completion:nil];
     
 //    LTAlertView *view = [LTAlertView alertViewWithTitle:@"这是一个标题" message:@"这是内容吗？\n这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？这是内容吗？"];
 //    LTAlertView *view = [LTAlertView alertViewWithTitle:@"这是一个标题" message:@"这是内容吗？\n这是"];
-    LTAlertView *view = [[LTAlertView alloc]init];
-    view.title = @"121243232";
-    view.message = @"这是内容吗？这是内容吗？这是内容吗？这是内容";
-//    view.neverHide = YES;
-    [view lt_addButtonWithTitle:@"23213213213"];
-//    [view lt_addButtonWithTitle:@"222"];
-//    [view lt_addButtonWithTitle:@"3333"];
-    [view lt_addButtonWithConfigurationHandler:^(UIButton * _Nonnull button) {
-        
-        [button setTitle:@"111" forState:UIControlStateNormal];
-    }];
+//    LTAlertView *view = [[LTAlertView alloc]init];
+//    view.title = @"121243232";
+//    view.message = @"这是内容吗？这是内容吗？这是内容吗？这是内容";
+////    view.neverHide = YES;
+//    [view lt_addButtonWithTitle:@"23213213213"];
+////    [view lt_addButtonWithTitle:@"222"];
+////    [view lt_addButtonWithTitle:@"3333"];
 //    [view lt_addButtonWithConfigurationHandler:^(UIButton * _Nonnull button) {
 //        
-//        [button setTitle:@"222" forState:UIControlStateNormal];
+//        [button setTitle:@"111" forState:UIControlStateNormal];
 //    }];
-//    [view lt_addButtonWithConfigurationHandler:^(UIButton * _Nonnull button) {
+////    [view lt_addButtonWithConfigurationHandler:^(UIButton * _Nonnull button) {
+////        
+////        [button setTitle:@"222" forState:UIControlStateNormal];
+////    }];
+////    [view lt_addButtonWithConfigurationHandler:^(UIButton * _Nonnull button) {
+////        
+////        [button setTitle:@"333" forState:UIControlStateNormal];
+////    }];
+////    [view lt_addButtonWithTitle:@"222=="];
+//    
+//    view.delegate = self;
+//    [view setClickButtonBlock:^(LTAlertView * _Nonnull alertView, NSString * _Nonnull title) {
 //        
-//        [button setTitle:@"333" forState:UIControlStateNormal];
+//        NSLog(@"title=%@",title);
 //    }];
-//    [view lt_addButtonWithTitle:@"222=="];
-    
-    view.delegate = self;
-    [view setClickButtonBlock:^(LTAlertView * _Nonnull alertView, NSString * _Nonnull title) {
-        
-        NSLog(@"title=%@",title);
-    }];
-    [view lt_show];
-    
+//    [view lt_show];
+//    
 //    [self adddtitle:view];
 }
 

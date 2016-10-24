@@ -544,6 +544,7 @@
 
     if (buttonIndex<0||buttonIndex>[self.buttonsArray count]-1) {
         
+        [self lt_hide];
         return;
     }
     

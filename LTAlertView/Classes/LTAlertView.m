@@ -617,7 +617,7 @@
 - (void)hideAnimation:(void(^)())hideCompleteBlock{
     
     CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animation];
-    bounceAnimation.duration = 0.2;
+    bounceAnimation.duration = 0.15;
     bounceAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
     bounceAnimation.values = [NSArray arrayWithObjects:
                               [NSNumber numberWithFloat:1.05],
@@ -626,7 +626,7 @@
     
     [self.contentView.layer addAnimation:bounceAnimation forKey:@"transform.scale"];
     
-    [UIView animateWithDuration:0.15
+    [UIView animateWithDuration:0.13
                      animations:^{
                          
                          self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.0];

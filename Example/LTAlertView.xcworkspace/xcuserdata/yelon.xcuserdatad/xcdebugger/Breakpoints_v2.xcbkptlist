@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../LTAlertView/Classes/LTAlertView.m"
-            timestampString = "498464872.02155"
+            timestampString = "500469724.20154"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "522"
-            endingLineNumber = "522"
+            startingLineNumber = "524"
+            endingLineNumber = "524"
             landmarkName = "-lt_addButtonWithTitle:"
             landmarkType = "7">
          </BreakpointContent>

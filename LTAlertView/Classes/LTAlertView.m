@@ -565,7 +565,7 @@
         
         [self resetAllSubContentLayout];
         
-        UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+        UIWindow *window = [[[UIApplication sharedApplication] windows] firstObject];
         self.frame = [window bounds];
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         [window addSubview:self];

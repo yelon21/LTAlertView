@@ -60,5 +60,7 @@
 - (void)lt_dismissWithClickedButtonIndex:(NSInteger)buttonIndex;
 //展示
 - (void)lt_show;
+//关闭
+- (void)lt_hideForce;
 
 @end

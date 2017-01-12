@@ -582,6 +582,11 @@
         return;
     }
     
+    [self lt_hideForce];
+}
+
+- (void)lt_hideForce{
+
     dispatch_async(dispatch_get_main_queue(), ^{
         
         if (!isShowing) {

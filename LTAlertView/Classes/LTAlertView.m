@@ -8,16 +8,14 @@
 
 #import "LTAlertView.h"
 
-@interface LTAlertView (){
-
-    BOOL isShowing;
-}
+@interface LTAlertView ()
 
 @property(nonatomic,strong) NSMutableArray<UIButton *> *buttonsArray;
 @property(nonatomic,strong) NSMutableArray<UITextField *> *textFieldsArray;
 
 @property(nonatomic,strong) UIView *contentView;
 
+@property (nonatomic, assign) BOOL isShowing;
 
 @property(nonatomic,strong) UILabel *titleLabel;
 @property(nonatomic,strong) UILabel *messageLabel;//消息
@@ -25,6 +23,19 @@
 @property(nonatomic,strong) UIView *textFieldContentView;//文本框
 @property(nonatomic,strong) UIView *buttonContentView;//按钮
 @end
+
+static NSMutableArray *alerts;
+
+NSMutableArray *LTAlertArrays(){
+
+    if(!alerts){
+    
+        alerts = [[NSMutableArray alloc]init];
+    }
+    NSLog(@"====%p",alerts);
+    NSLog(@"alerts====%@",alerts);
+    return alerts;
+}
 
 @implementation LTAlertView
 
@@ -40,14 +51,19 @@
     alertView.message = message;
     alertView.ClickButtonBlock = clickButtonBlock;
     
-    va_list params; //定义一个指向个数可变的参数列表指针;
-    va_start(params,buttonTitles);//va_start 得到第一个可变参数地址,
-    NSString *arg;
     if (buttonTitles) {
 
-        id prev = buttonTitles;
-        [alertView lt_addButtonWithTitle:prev];
+        NSString *arg = buttonTitles;
+        
+        if (arg && [arg isKindOfClass:[NSString class]]){
+            
+            [alertView lt_addButtonWithTitle:arg];
+        }
+        
+        va_list params; //定义一个指向个数可变的参数列表指针;
+        va_start(params,buttonTitles);//va_start 得到第一个可变参数地址,
         //va_arg 指向下一个参数地址
+        
         while( (arg = va_arg(params,id)) ){
             
             if (arg && [arg isKindOfClass:[NSString class]]){
@@ -55,9 +71,11 @@
                 [alertView lt_addButtonWithTitle:arg];
             }
         }
+        
         //置空
         va_end(params);
     }
+    
     [alertView lt_show];
     return alertView;
 }
@@ -75,7 +93,7 @@
 
     if (self = [super init]) {
         
-        isShowing = NO;
+        self.isShowing = NO;
         self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
         [self setLayoutForContentView];
     }
@@ -553,15 +571,52 @@
     [self buttonClickAction:self.buttonsArray[buttonIndex]];
 }
 
+- (void)pushAlertView{
+    
+    if (!self.isShowing) {
+        
+        return ;
+    }
+    self.isShowing = NO;
+    [self removeFromSuperview];
+}
+
+- (void)popAlertView{
+
+    NSMutableArray *arrays = LTAlertArrays();
+    
+    if ([arrays count]>0) {
+        
+        LTAlertView *alert = [arrays lastObject];
+        
+        if (alert.isShowing == NO) {
+            
+            [alert lt_show];
+        }
+    }
+}
+
 - (void)lt_show{
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        if (isShowing) {
+        if (self.isShowing) {
             return ;
         }
         
-        isShowing = YES;
+        NSMutableArray *arrays = LTAlertArrays();
+        if ([arrays count]>0) {
+            
+            LTAlertView *alert = [arrays lastObject];
+            [alert pushAlertView];
+        }
+        
+        if (![arrays containsObject:self]) {
+            
+            [arrays addObject:self];
+        }
+        
+        self.isShowing = YES;
         
         [self resetAllSubContentLayout];
         
@@ -589,15 +644,28 @@
 
     dispatch_async(dispatch_get_main_queue(), ^{
         
-        if (!isShowing) {
+        NSMutableArray *arrays = LTAlertArrays();
+        [arrays removeObject:self];
+        
+        if (!self.isShowing) {
             
             return ;
         }
-        isShowing = NO;
-        [self hideAnimation:^{
+        self.isShowing = NO;
+        
+        if ([arrays count]>0) {
             
             [self removeFromSuperview];
-        }];
+        }
+        else{
+        
+            [self hideAnimation:^{
+                
+                [self removeFromSuperview];
+            }];
+        }
+        
+        [self popAlertView];
     });
 }
 

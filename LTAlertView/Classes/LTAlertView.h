@@ -32,6 +32,7 @@
 @property (nonatomic, assign) NSTextAlignment messageAlignment;
 
 @property (nonatomic, assign) BOOL neverHide;
+@property (nonatomic, assign,readonly) BOOL isShowing;
 
 @property (nullable, nonatomic, assign) id<LTAlertViewDelegate> delegate;
 @property (nullable, nonatomic, copy) void(^ClickButtonBlock)(LTAlertView * _Nonnull alertView,NSString *_Nonnull buttonTitle);

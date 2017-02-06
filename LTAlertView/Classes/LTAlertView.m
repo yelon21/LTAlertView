@@ -32,8 +32,7 @@ NSMutableArray *LTAlertArrays(){
     
         alerts = [[NSMutableArray alloc]init];
     }
-    NSLog(@"====%p",alerts);
-    NSLog(@"alerts====%@",alerts);
+    
     return alerts;
 }
 

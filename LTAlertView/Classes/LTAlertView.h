@@ -39,8 +39,8 @@
 
 + (_Nonnull id)LT_showAlertViewWithTitle:(nullable NSString *)title
                                  message:(nullable NSString *)message
-                        clickButtonBlock:(void(^)(LTAlertView * _Nonnull alertView,NSString *_Nonnull buttonTitle))clickButtonBlock
-                            buttonTitles:(NSString *)buttonTitles, ... NS_REQUIRES_NIL_TERMINATION;
+                        clickButtonBlock:(void(^_Nullable)(LTAlertView * _Nonnull alertView,NSString *_Nonnull buttonTitle))clickButtonBlock
+                            buttonTitles:(NSString *_Nullable)buttonTitles, ... NS_REQUIRES_NIL_TERMINATION;
 
 + (_Nonnull id)LT_alertViewWithTitle:(nullable NSString *)title
                              message:(nullable NSString *)message;

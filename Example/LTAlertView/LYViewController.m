@@ -77,7 +77,7 @@
         
         if (i < 6) {
             
-            [self touchesBegan:nil withEvent:nil];
+            [self touchesBegan:touches withEvent:event];
             i++;
         }
     });

@@ -619,7 +619,7 @@ NSMutableArray *LTAlertArrays(){
         
         [self resetAllSubContentLayout];
         
-        UIWindow *window = [[[UIApplication sharedApplication] windows] firstObject];
+        UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
         self.frame = [window bounds];
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         [window addSubview:self];

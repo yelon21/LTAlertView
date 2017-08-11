@@ -72,15 +72,15 @@
 //    
 //    [self adddtitle:view];
     
-    static NSInteger i = 0;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        if (i < 6) {
-            
-            [self touchesBegan:touches withEvent:event];
-            i++;
-        }
-    });
+//    static NSInteger i = 0;
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        
+//        if (i < 6) {
+//            
+//            [self touchesBegan:touches withEvent:event];
+//            i++;
+//        }
+//    });
 }
 
 - (void)adddtitle:(LTAlertView *)view{

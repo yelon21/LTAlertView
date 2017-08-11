@@ -22,6 +22,8 @@
 
 @property(nonatomic,strong) UIView *textFieldContentView;//文本框
 @property(nonatomic,strong) UIView *buttonContentView;//按钮
+
+@property(nonatomic,strong) UIWindow *currentWindow;
 @end
 
 static NSMutableArray *alerts;
@@ -99,6 +101,35 @@ NSMutableArray *LTAlertArrays(){
     return self;
 }
 #pragma mark setter & getter ==private
+
+-(UIWindow *)currentWindow{
+    
+    if (!_currentWindow) {
+        
+        _currentWindow = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+        _currentWindow.windowLevel = UIWindowLevelAlert+10;
+        _currentWindow.backgroundColor = [UIColor clearColor];
+    }
+    
+    return _currentWindow;
+}
+
+- (void)showCurrentWindow{
+    
+    [self.currentWindow makeKeyAndVisible];
+}
+
+- (void)destoryCurrentWindow{
+    
+    [self hideCurrentWindow];
+    self.currentWindow = nil;
+}
+
+- (void)hideCurrentWindow{
+    
+    self.currentWindow.hidden = YES;
+}
+
 -(UIView *)contentView{
     
     if (!_contentView) {
@@ -577,7 +608,7 @@ NSMutableArray *LTAlertArrays(){
         return ;
     }
     self.isShowing = NO;
-    [self removeFromSuperview];
+    [self destoryCurrentWindow];
 }
 
 - (void)popAlertView{
@@ -619,11 +650,11 @@ NSMutableArray *LTAlertArrays(){
         
         [self resetAllSubContentLayout];
         
-        UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+        UIWindow *window = self.currentWindow;
         self.frame = [window bounds];
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         [window addSubview:self];
-        
+        [self showCurrentWindow];
         [self showAnimation];
     });
     
@@ -654,13 +685,13 @@ NSMutableArray *LTAlertArrays(){
         
         if ([arrays count]>0) {
             
-            [self removeFromSuperview];
+            [self destoryCurrentWindow];
         }
         else{
         
             [self hideAnimation:^{
                 
-                [self removeFromSuperview];
+                [self destoryCurrentWindow];
             }];
         }
         

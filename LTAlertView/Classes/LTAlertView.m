@@ -95,7 +95,7 @@ NSMutableArray *LTAlertArrays(){
     if (self = [super init]) {
         
         self.isShowing = NO;
-        self.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
+        self.view.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.3];
         [self setLayoutForContentView];
     }
     return self;
@@ -282,7 +282,7 @@ NSMutableArray *LTAlertArrays(){
 - (void)setLayoutForContentView{
 
     //scrollView
-    UIView *superView = self;
+    UIView *superView = self.view;
     
     //contentView
     UIView *contentView = self.contentView;
@@ -299,11 +299,27 @@ NSMutableArray *LTAlertArrays(){
                                        withAttribute:NSLayoutAttributeCenterY
                                             constant:0.0]];
     
-    [superView addConstraint:[self constraintForView:contentView
-                                           attribute:NSLayoutAttributeWidth
-                                              toView:superView
-                                       withAttribute:NSLayoutAttributeWidth
-                                            constant:-80.0]];
+//    [superView addConstraint:[self constraintForView:contentView
+//                                           attribute:NSLayoutAttributeWidth
+//                                              toView:superView
+//                                       withAttribute:NSLayoutAttributeWidth
+//                                            constant:-40.0]];
+    
+    [superView addConstraint:[NSLayoutConstraint constraintWithItem:contentView
+                                                          attribute:NSLayoutAttributeWidth
+                                                          relatedBy:NSLayoutRelationLessThanOrEqual
+                                                             toItem:nil
+                                                          attribute:NSLayoutAttributeNotAnAttribute
+                                                         multiplier:1.0
+                                                           constant:300.0]];
+    
+    [superView addConstraint:[NSLayoutConstraint constraintWithItem:contentView
+                                                          attribute:NSLayoutAttributeWidth
+                                                          relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                             toItem:nil
+                                                          attribute:NSLayoutAttributeNotAnAttribute
+                                                         multiplier:1.0
+                                                           constant:200.0]];
     
     [superView addConstraint:[NSLayoutConstraint constraintWithItem:contentView
                                                               attribute:NSLayoutAttributeTop
@@ -311,7 +327,7 @@ NSMutableArray *LTAlertArrays(){
                                                                  toItem:superView
                                                               attribute:NSLayoutAttributeTop
                                                              multiplier:1.0
-                                                               constant:40.0]];
+                                                               constant:20.0]];
 
     //---------------------content begin
     //titleLabel
@@ -651,9 +667,9 @@ NSMutableArray *LTAlertArrays(){
         [self resetAllSubContentLayout];
         
         UIWindow *window = self.currentWindow;
-        self.frame = [window bounds];
-        self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
-        [window addSubview:self];
+//        self.frame = [window bounds];
+//        self.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+        [window setRootViewController:self];
         [self showCurrentWindow];
         [self showAnimation];
     });
@@ -713,7 +729,7 @@ NSMutableArray *LTAlertArrays(){
     
     [self.contentView.layer addAnimation:bounceAnimation forKey:@"transform.scale"];
     [UIView animateWithDuration:0.15 animations:^{
-        self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
+        self.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
     }];
 }
 
@@ -732,7 +748,7 @@ NSMutableArray *LTAlertArrays(){
     [UIView animateWithDuration:0.13
                      animations:^{
                          
-                         self.backgroundColor = [UIColor colorWithWhite:0 alpha:0.0];
+                         self.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.0];
                      }
                      completion:^(BOOL finished) {
                          
@@ -820,4 +836,23 @@ NSMutableArray *LTAlertArrays(){
     
     return image;
 }
+
+- (BOOL)shouldAutorotate {
+    
+    return YES;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    
+    return UIInterfaceOrientationMaskAll;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    
+    return UIInterfaceOrientationPortrait|
+    UIInterfaceOrientationPortraitUpsideDown|
+    UIInterfaceOrientationLandscapeLeft
+    |UIInterfaceOrientationLandscapeRight;
+}
+
 @end

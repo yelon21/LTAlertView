@@ -27,12 +27,12 @@
     NSLog(@"window=%@",NSStringFromCGRect(self.view.window.bounds));
     
     LTAlertView *alert = [LTAlertView LT_showAlertViewWithTitle:@"标题"
-                                   message:@"weqwq"
+                                   message:@"weqwq34weqwq34weqwq34weqwq34weqwq34weqwq34weqwq34"
                           clickButtonBlock:^(LTAlertView * _Nonnull alertView, NSString * _Nonnull buttonTitle) {
                               
                               NSLog(@"buttonTitle=%@",buttonTitle);
                           }
-                              buttonTitles:@"1",@"2",@"3",@"4", nil];
+                              buttonTitles:@"1",@"2", nil];
     
 //    [alert lt_show];
     [alert lt_addButtonWithTitle:@"13213213"];
@@ -97,10 +97,27 @@
     NSLog(@"buttonTitle=%@",buttonTitle);
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (BOOL)shouldAutorotate {
+    
+    return YES;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    
+    return UIStatusBarStyleLightContent;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    
+    return UIInterfaceOrientationMaskAll;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    
+    return UIInterfaceOrientationPortrait|
+    UIInterfaceOrientationPortraitUpsideDown|
+    UIInterfaceOrientationLandscapeLeft
+    |UIInterfaceOrientationLandscapeRight;
 }
 
 @end

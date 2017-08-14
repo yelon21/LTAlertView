@@ -16,7 +16,7 @@
 
 @end
 
-@interface LTAlertView : UIView
+@interface LTAlertView : UIViewController
 
 //文本框
 @property (nullable, nonatomic, readonly) NSArray<UITextField *> *textFields;

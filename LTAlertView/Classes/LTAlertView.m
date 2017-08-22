@@ -48,7 +48,7 @@ NSMutableArray *LTAlertArrays(){
     
     LTAlertView *alertView = [[LTAlertView alloc]init];
     
-    alertView.title = title;
+    alertView.alertTitle = title;
     alertView.message = message;
     alertView.ClickButtonBlock = clickButtonBlock;
     
@@ -84,7 +84,7 @@ NSMutableArray *LTAlertArrays(){
                              message:(nullable NSString *)message{
     LTAlertView *alertView = [[LTAlertView alloc]init];
     
-    alertView.title = title;
+    alertView.alertTitle = title;
     alertView.message = message;
     
     return alertView;
@@ -208,11 +208,11 @@ NSMutableArray *LTAlertArrays(){
 
 #pragma mark setter & getter == public
 //设置标题
--(void)setTitle:(NSString *)title{
+-(void)setAlertTitle:(NSString *)alertTitle{
 
-    self.titleLabel.text = title;
+    self.titleLabel.text = alertTitle;
 }
--(NSString *)title{
+-(NSString *)alertTitle{
 
     return self.titleLabel.text;
 }
@@ -319,7 +319,7 @@ NSMutableArray *LTAlertArrays(){
                                                              toItem:nil
                                                           attribute:NSLayoutAttributeNotAnAttribute
                                                          multiplier:1.0
-                                                           constant:200.0]];
+                                                           constant:210.0]];
     
     [superView addConstraint:[NSLayoutConstraint constraintWithItem:contentView
                                                               attribute:NSLayoutAttributeTop

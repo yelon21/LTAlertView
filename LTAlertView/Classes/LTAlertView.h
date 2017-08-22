@@ -21,7 +21,7 @@
 //文本框
 @property (nullable, nonatomic, readonly) NSArray<UITextField *> *textFields;
 //标题
-@property (nullable, nonatomic, assign) NSString *title;
+@property (nullable, nonatomic, assign) NSString *alertTitle;
 @property (nullable, nonatomic, assign) NSAttributedString  *attributedTitle;
 @property (nullable, nonatomic, assign) UIColor *titleColor;
 @property (nonatomic, assign) NSTextAlignment titleAlignment;
@@ -44,8 +44,6 @@
 
 + (_Nonnull id)LT_alertViewWithTitle:(nullable NSString *)title
                              message:(nullable NSString *)message;
-
--(_Nonnull id)initWithFrame:(CGRect)frame NS_UNAVAILABLE;
 
 ////添加按钮  -1 表示失败
 - (NSInteger)lt_addButtonWithTitle:(NSString  * _Nonnull )title;

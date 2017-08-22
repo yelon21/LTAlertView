@@ -9,7 +9,10 @@
 #import "LYViewController.h"
 #import "LTAlertView.h"
 
-@interface LYViewController ()<LTAlertViewDelegate>
+@interface LYViewController ()<LTAlertViewDelegate>{
+
+    LTAlertView *alert;
+}
 
 @end
 
@@ -26,16 +29,23 @@
     NSLog(@"UIScreen=%@",NSStringFromCGRect([UIScreen mainScreen].bounds));
     NSLog(@"window=%@",NSStringFromCGRect(self.view.window.bounds));
     
-    LTAlertView *alert = [LTAlertView LT_showAlertViewWithTitle:@"标题"
-                                   message:@"weqwq34weqwq34weqwq34weqwq34weqwq34weqwq34weqwq34"
-                          clickButtonBlock:^(LTAlertView * _Nonnull alertView, NSString * _Nonnull buttonTitle) {
-                              
-                              NSLog(@"buttonTitle=%@",buttonTitle);
-                          }
-                              buttonTitles:@"1",@"2", nil];
+    if (!alert) {
+        
+        alert = [LTAlertView LT_showAlertViewWithTitle:@"标题"
+                                               message:@"weqwq3"
+                                      clickButtonBlock:^(LTAlertView * _Nonnull alertView, NSString * _Nonnull buttonTitle) {
+                                          
+                                          NSLog(@"buttonTitle=%@",buttonTitle);
+                                      }
+                                          buttonTitles:@"1",@"2", nil];
+    }
     
+    NSString *measage = @"weqwq34w";
+    
+    measage = [NSString stringWithFormat:@"%@--%@",alert.message,measage];
+    alert.message = measage;
 //    [alert lt_show];
-    [alert lt_addButtonWithTitle:@"13213213"];
+//    [alert lt_addButtonWithTitle:@"13213213"];
 //    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 //    LYViewController *vc =[sb instantiateViewControllerWithIdentifier:@"LYViewController"];
 //    [self presentViewController:vc animated:YES completion:nil];
@@ -75,7 +85,7 @@
 //    static NSInteger i = 0;
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        
-//        if (i < 6) {
+//        if (i < 16) {
 //            
 //            [self touchesBegan:touches withEvent:event];
 //            i++;

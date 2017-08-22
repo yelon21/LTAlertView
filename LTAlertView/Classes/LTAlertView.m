@@ -305,21 +305,21 @@ NSMutableArray *LTAlertArrays(){
 //                                       withAttribute:NSLayoutAttributeWidth
 //                                            constant:-40.0]];
     
-    [superView addConstraint:[NSLayoutConstraint constraintWithItem:contentView
-                                                          attribute:NSLayoutAttributeWidth
-                                                          relatedBy:NSLayoutRelationLessThanOrEqual
-                                                             toItem:nil
-                                                          attribute:NSLayoutAttributeNotAnAttribute
-                                                         multiplier:1.0
-                                                           constant:300.0]];
+//    [superView addConstraint:[NSLayoutConstraint constraintWithItem:contentView
+//                                                          attribute:NSLayoutAttributeWidth
+//                                                          relatedBy:NSLayoutRelationLessThanOrEqual
+//                                                             toItem:nil
+//                                                          attribute:NSLayoutAttributeNotAnAttribute
+//                                                         multiplier:1.0
+//                                                           constant:300.0]];
     
     [superView addConstraint:[NSLayoutConstraint constraintWithItem:contentView
                                                           attribute:NSLayoutAttributeWidth
-                                                          relatedBy:NSLayoutRelationGreaterThanOrEqual
+                                                          relatedBy:NSLayoutRelationEqual
                                                              toItem:nil
                                                           attribute:NSLayoutAttributeNotAnAttribute
                                                          multiplier:1.0
-                                                           constant:210.0]];
+                                                           constant:270.0/414.0*CGRectGetWidth([UIScreen mainScreen].bounds)]];
     
     [superView addConstraint:[NSLayoutConstraint constraintWithItem:contentView
                                                               attribute:NSLayoutAttributeTop

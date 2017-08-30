@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../LTAlertView/Classes/LTAlertView.m"
-            timestampString = "525771442.351358"
+            timestampString = "525772032.130138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "874"
-            endingLineNumber = "874"
+            startingLineNumber = "879"
+            endingLineNumber = "879"
             landmarkName = "-lt_FrontViewController"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../LTAlertView/Classes/LTAlertView.m"
-            timestampString = "525771459.04848"
+            timestampString = "525772032.130138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "878"
-            endingLineNumber = "878"
+            startingLineNumber = "883"
+            endingLineNumber = "883"
             landmarkName = "-lt_FrontViewController"
             landmarkType = "7">
          </BreakpointContent>

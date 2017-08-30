@@ -313,13 +313,18 @@ NSMutableArray *LTAlertArrays(){
 //                                                         multiplier:1.0
 //                                                           constant:300.0]];
     
+    CGFloat width = MIN(CGRectGetWidth([UIScreen mainScreen].bounds),
+                        CGRectGetHeight([UIScreen mainScreen].bounds));
+    
+    CGFloat radio = 0.652173913043478;//270.0/414.0
+    
     [superView addConstraint:[NSLayoutConstraint constraintWithItem:contentView
                                                           attribute:NSLayoutAttributeWidth
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:nil
                                                           attribute:NSLayoutAttributeNotAnAttribute
                                                          multiplier:1.0
-                                                           constant:270.0/414.0*CGRectGetWidth([UIScreen mainScreen].bounds)]];
+                                                           constant:radio * width]];
     
     [superView addConstraint:[NSLayoutConstraint constraintWithItem:contentView
                                                               attribute:NSLayoutAttributeTop

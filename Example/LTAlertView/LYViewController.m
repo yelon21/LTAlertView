@@ -29,8 +29,8 @@
     NSLog(@"UIScreen=%@",NSStringFromCGRect([UIScreen mainScreen].bounds));
     NSLog(@"window=%@",NSStringFromCGRect(self.view.window.bounds));
     
-    if (!alert) {
-        
+//    if (!alert) {
+    
         alert = [LTAlertView LT_showAlertViewWithTitle:@"标题"
                                                message:@"weqwq3"
                                       clickButtonBlock:^(LTAlertView * _Nonnull alertView, NSString * _Nonnull buttonTitle) {
@@ -38,7 +38,7 @@
                                           NSLog(@"buttonTitle=%@",buttonTitle);
                                       }
                                           buttonTitles:@"1",@"2", nil];
-    }
+//    }
     
     NSString *measage = @"weqwq34w";
     
@@ -85,7 +85,7 @@
     static NSInteger i = 0;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        if (i < 16) {
+        if (i < 10) {
             
             [self touchesBegan:touches withEvent:event];
             i++;
@@ -109,7 +109,7 @@
 
 - (BOOL)shouldAutorotate {
     
-    return YES;
+    return NO;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {

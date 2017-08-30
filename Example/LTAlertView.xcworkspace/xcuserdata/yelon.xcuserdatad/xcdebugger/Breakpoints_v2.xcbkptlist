@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "LTAlertView/LYViewController.m"
-            timestampString = "525084705.186116"
+            filePath = "../LTAlertView/Classes/LTAlertView.m"
+            timestampString = "525771442.351358"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-touchesBegan:withEvent:"
+            startingLineNumber = "874"
+            endingLineNumber = "874"
+            landmarkName = "-lt_FrontViewController"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../LTAlertView/Classes/LTAlertView.m"
+            timestampString = "525771459.04848"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "878"
+            endingLineNumber = "878"
+            landmarkName = "-lt_FrontViewController"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

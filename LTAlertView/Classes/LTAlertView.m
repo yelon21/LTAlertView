@@ -837,22 +837,55 @@ NSMutableArray *LTAlertArrays(){
     return image;
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    
+    return [[self lt_FrontViewController] preferredStatusBarStyle];
+}
+
 - (BOOL)shouldAutorotate {
     
-    return YES;
+    return [[self lt_FrontViewController] shouldAutorotate];
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
     
-    return UIInterfaceOrientationMaskAll;
+    return [[self lt_FrontViewController] supportedInterfaceOrientations];
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
     
-    return UIInterfaceOrientationPortrait|
-    UIInterfaceOrientationPortraitUpsideDown|
-    UIInterfaceOrientationLandscapeLeft
-    |UIInterfaceOrientationLandscapeRight;
+    return [[self lt_FrontViewController] preferredInterfaceOrientationForPresentation];
 }
 
+- (UIViewController *)lt_FrontViewController{
+    
+    NSArray *windows = [UIApplication sharedApplication].windows;
+    
+    __block UIViewController *viewCon = nil;
+    
+    [windows enumerateObjectsWithOptions:NSEnumerationReverse
+                              usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                 
+                                  UIWindow *window = obj;
+                                  UIViewController *rootVC = window .rootViewController;
+                                  
+                                  if (rootVC && ![rootVC isKindOfClass:[LTAlertView class]]) {
+                                      
+                                      viewCon = rootVC;
+                                  }
+                              }];
+    
+    return [self lt_FrontViewController:viewCon];
+}
+
+- (UIViewController *)lt_FrontViewController:(UIViewController *)root{
+    
+    UIViewController *rootVC = root;
+    
+    if (rootVC.presentedViewController) {
+        
+        return [self lt_FrontViewController:rootVC.presentedViewController];
+    }
+    return rootVC;
+}
 @end

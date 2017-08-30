@@ -876,6 +876,7 @@ NSMutableArray *LTAlertArrays(){
                                   
                                   if (rootVC && ![rootVC isKindOfClass:[LTAlertView class]]) {
                                       
+                                      *stop = YES;
                                       viewCon = rootVC;
                                   }
                               }];

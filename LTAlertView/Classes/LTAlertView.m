@@ -870,15 +870,27 @@ NSMutableArray *LTAlertArrays(){
     
     [windows enumerateObjectsWithOptions:NSEnumerationReverse
                               usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                                 
-                                  UIWindow *window = obj;
-                                  UIViewController *rootVC = window .rootViewController;
                                   
-                                  if (rootVC && ![rootVC isKindOfClass:[LTAlertView class]]) {
+                                  UIWindow *window = obj;
+                                  
+                                  if ([window isKindOfClass:[UIWindow class]]
+                                      && !window.hidden) {
                                       
-                                      *stop = YES;
-                                      viewCon = rootVC;
+                                      NSString *classString = NSStringFromClass(window.class);
+                                      
+                                      if (![classString isEqualToString:@"UITextEffectsWindow"]
+                                          &&![classString isEqualToString:@"UIRemoteKeyboardWindow"]) {
+                                          
+                                          UIViewController *rootVC = window .rootViewController;
+                                          
+                                          if (rootVC && ![rootVC isKindOfClass:[LTAlertView class]]) {
+                                              
+                                              *stop = YES;
+                                              viewCon = rootVC;
+                                          }
+                                      }
                                   }
+                                  
                               }];
     
     return [self lt_FrontViewController:viewCon];

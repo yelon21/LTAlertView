@@ -20,9 +20,9 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		812EAF2ABD6657AFBA87F309 /* Pods_LTAlertView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 523E6984BE71607C0FEDC553 /* Pods_LTAlertView_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		A9F302675C7DA08C75B6ED95 /* Pods_LTAlertView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A101BF297D4A6E0BE40EF7 /* Pods_LTAlertView_Tests.framework */; };
+		98E32D723F43C8205030DCF8 /* libPods-LTAlertView_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1233A471C20A5AC9406EBF69 /* libPods-LTAlertView_Tests.a */; };
+		E3603DE50225B04700971DE4 /* libPods-LTAlertView_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48701547643B2DDB32B5A677 /* libPods-LTAlertView_Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,8 @@
 /* Begin PBXFileReference section */
 		00E79957E5C0133D1720AF39 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		03C42FA93D38F1EB307FD36A /* Pods-LTAlertView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTAlertView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LTAlertView_Tests/Pods-LTAlertView_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		523E6984BE71607C0FEDC553 /* Pods_LTAlertView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTAlertView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1233A471C20A5AC9406EBF69 /* libPods-LTAlertView_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LTAlertView_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		48701547643B2DDB32B5A677 /* libPods-LTAlertView_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LTAlertView_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* LTAlertView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTAlertView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,7 +60,6 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		93A101BF297D4A6E0BE40EF7 /* Pods_LTAlertView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LTAlertView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A19CC4738AEAE5C4B5B050AB /* Pods-LTAlertView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTAlertView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTAlertView_Tests/Pods-LTAlertView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		BD0AF3E5AA02936CDE865BE9 /* Pods-LTAlertView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LTAlertView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LTAlertView_Example/Pods-LTAlertView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D3E29B792D421250757BD821 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				812EAF2ABD6657AFBA87F309 /* Pods_LTAlertView_Example.framework in Frameworks */,
+				E3603DE50225B04700971DE4 /* libPods-LTAlertView_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				A9F302675C7DA08C75B6ED95 /* Pods_LTAlertView_Tests.framework in Frameworks */,
+				98E32D723F43C8205030DCF8 /* libPods-LTAlertView_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +132,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				523E6984BE71607C0FEDC553 /* Pods_LTAlertView_Example.framework */,
-				93A101BF297D4A6E0BE40EF7 /* Pods_LTAlertView_Tests.framework */,
+				48701547643B2DDB32B5A677 /* libPods-LTAlertView_Example.a */,
+				1233A471C20A5AC9406EBF69 /* libPods-LTAlertView_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -354,7 +354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		D9EB40E933CD365E81EB484E /* [CP] Copy Pods Resources */ = {
@@ -384,7 +384,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -521,6 +521,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LTAlertView/LTAlertView-Prefix.pch";
 				INFOPLIST_FILE = "LTAlertView/LTAlertView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -540,6 +541,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "LTAlertView/LTAlertView-Prefix.pch";
 				INFOPLIST_FILE = "LTAlertView/LTAlertView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

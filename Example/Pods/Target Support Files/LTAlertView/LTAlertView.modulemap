@@ -1,6 +1,0 @@
-framework module LTAlertView {
-  umbrella header "LTAlertView-umbrella.h"
-
-  export *
-  module * { export * }
-}

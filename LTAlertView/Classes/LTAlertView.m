@@ -576,15 +576,18 @@ NSMutableArray *LTAlertArrays(){
     
     [self lt_hide];
     
-    if ([self.delegate respondsToSelector:@selector(ltAlertView:clickButtonTitle:)]) {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.35 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        [self.delegate ltAlertView:self
-                  clickButtonTitle:buttonTitle];
-    }
-    if (self.ClickButtonBlock) {
-        
-        self.ClickButtonBlock(self,buttonTitle);
-    }
+        if ([self.delegate respondsToSelector:@selector(ltAlertView:clickButtonTitle:)]) {
+            
+            [self.delegate ltAlertView:self
+                      clickButtonTitle:buttonTitle];
+        }
+        if (self.ClickButtonBlock) {
+            
+            self.ClickButtonBlock(self,buttonTitle);
+        }
+    });
 }
 
 #pragma mark public Method

@@ -741,7 +741,7 @@ NSMutableArray *LTAlertArrays(){
     }];
 }
 
-- (void)hideAnimation:(void(^)())hideCompleteBlock{
+- (void)hideAnimation:(void(^)(void))hideCompleteBlock{
     
     CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animation];
     bounceAnimation.duration = 0.15;

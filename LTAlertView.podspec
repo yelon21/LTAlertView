@@ -28,7 +28,7 @@ TODO: 个人工具类.
   s.source           = { :git => 'https://github.com/yelon21/LTAlertView.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '6.0'
+  s.ios.deployment_target = '7.0'
 
   s.source_files = 'LTAlertView/Classes/**/*'
   

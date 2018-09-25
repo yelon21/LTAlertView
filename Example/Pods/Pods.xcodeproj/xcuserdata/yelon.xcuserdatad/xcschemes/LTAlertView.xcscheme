@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '9847DE6DB5CD23F5E4CD21567BDF7250'
-               BlueprintName = 'LTAlertView'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libLTAlertView.a'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "88EAF821A815D4FC2B27BCF5154DBA02"
+               BlueprintName = "LTAlertView"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "libLTAlertView.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

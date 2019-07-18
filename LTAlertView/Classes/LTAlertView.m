@@ -614,6 +614,16 @@ NSMutableArray *LTAlertArrays(){
     }
 }
 
+- (void)lt_resetButtonWithTitles:(NSArray<NSString *>  * _Nonnull )titles{
+    
+    [self.buttonsArray removeAllObjects];
+    [titles enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       
+        [self lt_addButtonWithTitle:obj];
+    }];
+    [self resetButtonContentLayout];
+}
+
 -(void)lt_dismissWithClickedButtonIndex:(NSInteger)buttonIndex{
 
     if (buttonIndex<0||buttonIndex>[self.buttonsArray count]-1) {

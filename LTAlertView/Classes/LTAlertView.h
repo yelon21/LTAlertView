@@ -53,7 +53,7 @@
 
 //添加TextField
 //- (void)lt_addTextFieldWithConfigurationHandler:(void (^ __nullable)(UITextField  * _Nonnull textField))configurationHandler;
-
+- (void)lt_resetButtonWithTitles:(NSArray<NSString *>  * _Nonnull )titles;
 
 //主动隐藏
 - (void)lt_dismissWithClickedButtonIndex:(NSInteger)buttonIndex;

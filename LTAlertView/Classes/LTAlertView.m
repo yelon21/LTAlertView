@@ -135,8 +135,12 @@ NSMutableArray *LTAlertArrays(){
     if (!_contentView) {
         
         _contentView = [[UIView alloc]init];
-        _contentView.backgroundColor = [UIColor whiteColor];
-        _contentView.layer.cornerRadius = 5.0;
+        if (@available(iOS 13.0, *)) {
+            _contentView.backgroundColor = [UIColor tertiarySystemBackgroundColor];
+        } else {
+            _contentView.backgroundColor = [UIColor whiteColor];
+        }
+        _contentView.layer.cornerRadius = 10.0;
         _contentView.layer.masksToBounds = YES;
     }
     return _contentView;
@@ -148,7 +152,11 @@ NSMutableArray *LTAlertArrays(){
         
         _titleLabel = [UILabel new];
         _titleLabel.font = [UIFont boldSystemFontOfSize:17.0];
-        _titleLabel.textColor = [UIColor blackColor];
+        if (@available(iOS 13.0, *)) {
+            _titleLabel.textColor = [UIColor labelColor];
+        } else {
+            _titleLabel.textColor = [UIColor blackColor];
+        }
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.numberOfLines = 3;
     }
@@ -162,7 +170,11 @@ NSMutableArray *LTAlertArrays(){
         _messageLabel = [UILabel new];
         _messageLabel.numberOfLines = 0;
         _messageLabel.font = [UIFont systemFontOfSize:14.0];
-        _messageLabel.textColor = [UIColor blackColor];
+        if (@available(iOS 13.0, *)) {
+            _messageLabel.textColor = [UIColor labelColor];
+        } else {
+            _messageLabel.textColor = [UIColor blackColor];
+        }
         _messageLabel.textAlignment = NSTextAlignmentCenter;
     }
     return _messageLabel;
@@ -316,7 +328,7 @@ NSMutableArray *LTAlertArrays(){
     CGFloat width = MIN(CGRectGetWidth([UIScreen mainScreen].bounds),
                         CGRectGetHeight([UIScreen mainScreen].bounds));
     
-    CGFloat radio = 0.652173913043478;//270.0/414.0
+    CGFloat radio = 0.75;//270.0/414.0
     
     [superView addConstraint:[NSLayoutConstraint constraintWithItem:contentView
                                                           attribute:NSLayoutAttributeWidth
@@ -551,14 +563,24 @@ NSMutableArray *LTAlertArrays(){
     btn.titleLabel.font = [UIFont boldSystemFontOfSize:17.0];
     
     [btn setTitle:title forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor colorWithRed:35.0/255.0 green:137.0/255.0 blue:250.0/255.0 alpha:1.0]
-              forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor darkGrayColor]
-              forState:UIControlStateHighlighted];
+    if (@available(iOS 13.0, *)) {
+        
+        [btn setTitleColor:[UIColor systemBlueColor]
+                  forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor systemGrayColor]
+                  forState:UIControlStateHighlighted];
+    }
+    else{
+        
+        [btn setTitleColor:[UIColor colorWithRed:35.0/255.0 green:137.0/255.0 blue:250.0/255.0 alpha:1.0]
+                  forState:UIControlStateNormal];
+        [btn setTitleColor:[UIColor darkGrayColor]
+                  forState:UIControlStateHighlighted];
+    }
     
     [btn setBackgroundImage:[LTAlertView lt_imageWithColor:self.contentView.backgroundColor]
                    forState:UIControlStateNormal];
-    [btn setBackgroundImage:[LTAlertView lt_imageWithColor:[UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0]]
+    [btn setBackgroundImage:[LTAlertView lt_imageWithColor:[self.contentView.backgroundColor colorWithAlphaComponent:0.6]]
                    forState:UIControlStateHighlighted];
     
     [btn addTarget:self
@@ -918,5 +940,25 @@ NSMutableArray *LTAlertArrays(){
         return [self lt_FrontViewController:rootVC.presentedViewController];
     }
     return rootVC;
+}
+
+-(void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection API_AVAILABLE(ios(8.0)){
+    
+    [super traitCollectionDidChange:previousTraitCollection];
+
+    if (@available(iOS 13.0, *)) {
+        if ([self.traitCollection hasDifferentColorAppearanceComparedToTraitCollection:previousTraitCollection]) {
+            
+            for (UIButton *btn in self.buttonsArray) {
+                
+                [btn setBackgroundImage:[LTAlertView lt_imageWithColor:self.contentView.backgroundColor]
+                               forState:UIControlStateNormal];
+                [btn setBackgroundImage:[LTAlertView lt_imageWithColor:[self.contentView.backgroundColor colorWithAlphaComponent:0.6]]
+                               forState:UIControlStateHighlighted];
+            }
+        }
+    } else {
+        // Fallback on earlier versions
+    }
 }
 @end

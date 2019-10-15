@@ -355,7 +355,7 @@ NSMutableArray *LTAlertArrays(){
     [contentView addConstraint:[self constraintForView:titleLabel
                                          toView:contentView
                                   withAttribute:NSLayoutAttributeTop
-                                       constant:10.0]];
+                                       constant:20.0]];
 
     [contentView addConstraint:[self constraintForView:titleLabel
                                          toView:contentView
@@ -376,7 +376,7 @@ NSMutableArray *LTAlertArrays(){
                                              attribute:NSLayoutAttributeTop
                                                 toView:titleLabel
                                          withAttribute:NSLayoutAttributeBottom
-                                              constant:5.0]];
+                                              constant:10.0]];
     [contentView addConstraint:[self constraintForView:messageLabel
                                                 toView:titleLabel
                                          withAttribute:NSLayoutAttributeLeft
